@@ -1,3 +1,5 @@
+Life is hard, but I work hard.
+==============================
 # Records
 record what I've learned everyday 
 
