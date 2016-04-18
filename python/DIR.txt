@@ -1,0 +1,2 @@
+cosp.notes
+    - python tips when generating COSP report

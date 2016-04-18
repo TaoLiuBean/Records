@@ -1,0 +1,58 @@
+task description
+================
+scan rootfs directory and give a report.
+
+how to convert a string to a list?
+    : str = "lib1 | lib | this is dynamic lib"
+      str.split('|') --> split the string to a list
+
+how to convert a list to a string with a specified connecter?
+    : l = ['lib1', 'lib2', 'lib3', 'lib4']
+      '|'.join(l) --> "lib1|lib2|lib3|lib4", list item connected to a string
+
+how to delete a item in list?
+    : a = ['a', 'b', 'c', 'd']
+      a.remove('b')
+      a = [x for x in a if x != 'b']
+
+how to iterate over a list?
+    : l = ['lib1', 'lib2', 'lib3', 'lib4']
+    for index,lib in enumerate(l):
+        print index,lib
+
+how to get the object type?
+    : type(myvar2).__name__ == 'str'
+      type(myvar2).__name__ == 'list'
+      type([]) is list
+      type({}) is dict
+      type('') is str
+
+how to remove the extra space in string?
+    : str.strip() --> remove the sapce in head and tail
+      str.strip('say') --> remove the 's','a','y' in head and tail
+      str.lstrip() --> remove the space in head
+      str.rstrip() --> remove the space in tail
+
+
+how to use global var in python?
+    : x = 50
+      def func():
+        global x # must declare here
+        print x
+
+how to add a key:value in dictionary?
+    : d = {}
+      d['key1'] = 'value1'
+      d['key2'] = 'value2'
+
+how to get value from specified key?
+    : d.get(key, 0) # get value of key, if no this key, return 0
+
+how to read file by line?
+    : file = open("sample.txt")
+      while 1:
+          line = file.readline()
+          if not line:
+              break
+           pass # do something 
+      file.close()
