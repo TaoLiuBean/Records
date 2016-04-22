@@ -1,0 +1,46 @@
+Task Description:
+=================
+I read the book `web scraping with python` recently. In my local desktop, there
+    is python2.7 installed. Python3 is needed in the book. After search in
+    Google, I know virtual env can be used. But I think if I use a docker
+    container including python3, maybe this is much cooler than use virtual env.
+
+The following is the steps I build my python3 docker image.
+The classical method to build an image is write a Docker file than use 'build'
+    cmd to generate the image. I only need to get an python3 image for check
+    the python3 code. So I use another method to generate the image. use cmd
+    'export' and 'import'.
+    - enter into the container 'ubuntu':
+        >> docker run -it ubuntu:latest
+    - intall python3 in the container
+        >> in the container terminal
+            apt-get install python3
+            apt-get update
+            apt-get install python3-pip3
+    - docker export f1a419dbc907 > python3.tar
+        >> here f1a419dbc907 is id of the python3 running container
+    - cat python3.tar | docker import - python3:v1
+    - docker run -it python3:v1 /bin/sh
+    - OK. now you can find the python3, pip3 is installed in the running docker.
+        in the using procedure, I need to add other modules like BeautifulSoup.
+        I use the similar method to get a new image. export & import.
+
+About `export` and `import` in `orchestrating Docker`:
+======================================================
+export : saves the fs of a container as atarball ans streams to `stdout` file.
+        It flattens fs layers. In other words, it merges all the fs layers. All
+        of the metadata of the image history is lost in this process.
+import: creates an empty fs image and imports the contents if the tarball to it.
+
+Other tips when using docker for examples in this book:
+=======================================================
+How to run ~/.bashrc in a container?
+    >>> I've added some env and alias in /root/.bashrc, but it does not execute.
+        maybe the better way is use the `CMD` instrucntion in a Dockerfile. But
+        I use following method to get the same effect:
+        docker run -it /bin/sh -c "source /root/.bashrc; /bin/bash"
+        + this create a new shell and run the cmds in quotations marks.
+
+docker book recomend
+====================
+I've read `Orchestrating Docker` twice. It's a good book for docker newbie.
