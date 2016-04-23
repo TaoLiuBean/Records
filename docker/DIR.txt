@@ -1,2 +1,5 @@
 web-scraping-with-python.txt
     - docker image building when reading `web scraping with python`
+
+docker-install-on-32bit-ubuntu.txt
+    - install docker in 32bit ubuntu-14.04

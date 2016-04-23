@@ -1,0 +1,13 @@
+I get the old 32bit Lenova Laptop and want to do some docker cluster experience.
+
+When I follow the guide in docker official guide in
+    [https://docs.docker.com/engine/installation/linux/ubuntulinux/]
+    `apt-get` always give the error msg : fail to locate dokcer-engine.
+
+After google search, get the following method:
+    - clone repo on [https://github.com/docker-32bit/ubuntu]
+    - run build-image.sh
+    - add group to avoid sudo in docker cmds:
+        + sudo groupadd docker
+        + sudo usermod -aG docker ubuntu
+    - re login. docker works now :)
