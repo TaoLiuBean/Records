@@ -3,3 +3,6 @@ web-scraping-with-python.txt
 
 docker-install-on-32bit-ubuntu.txt
     - install docker in 32bit ubuntu-14.04
+
+swarm-docker-cluster-native-tool.md
+    - try the swarm example in docker swarm offical guide
