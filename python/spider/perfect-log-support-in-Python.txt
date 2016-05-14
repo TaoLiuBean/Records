@@ -1,0 +1,55 @@
+When writing Python code, I add some print to show logs. This works well when
+    the code in samll scale. However, the overwhelming logs make me lost when
+    the code scale grows up. I dont't know where the log comes from. I have to
+    search the code to locate the log & related code segment.
+
+`logging` module make me release from this issue.
+
+It defines several levels for the code: DEBUG, INFO, WARNING, ERROR, CRITICAL.
+    The related functions are debug(), info(), warning(), error(), critical().
+    Code segments presents the usage:
+    ---------------------------------
+        >>> import logging
+        >>> logging.debug("ni hao")
+        >>> logging.info("ni hao2")
+        >>> logging.warning("ni hao")
+        WARNING:root:ni hao
+        >>> logging.error("ni hao")
+        ERROR:root:ni hao
+        >>> logging.critical("ni hao")
+        CRITICAL:root:ni hao
+        >>>
+
+Set log level for the code:
+    Code segments presents the usage:
+    ---------------------------------
+        >>> import logging
+        >>> logging.basicConfig(level=logging.INFO)
+        >>> logging.info("nihao")
+        INFO:root:nihao
+        >>> logging.debug("dfasl")
+        >>> logging.basicConfig(level=logging.DEBUG)
+        >>> logging.info(4)
+        INFO:root:4
+        >>>
+
+Make us know the log's source file name & lineno:
+    Code segments presents the usage:
+    ---------------------------------
+        import logging
+
+        logging.basicConfig(level=logging.DEBUG,
+                        format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s',
+                        datefmt='%a, %d %b %Y %H:%M:%S',
+                        filename='myapp.log',
+                        filemode='w')
+
+        logging.debug('This is debug message')
+        logging.info('This is info message')
+        logging.warning('This is warning message')
+
+    >> output of above code:
+    ------------------------
+    Sun, 24 May 2009 21:48:54 demo2.py[line:11] DEBUG This is debug message
+    Sun, 24 May 2009 21:48:54 demo2.py[line:12] INFO This is info message
+    Sun, 24 May 2009 21:48:54 demo2.py[line:13] WARNING This is warning message
