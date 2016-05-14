@@ -1,0 +1,27 @@
+I'm writing a spider to get data about the entrance exam in China.
+
+The python env including following points:
+    - python3
+    - BeautifulSoup
+    - urllib
+
+After write some code, I start testing the code. The code runs OK at the start,
+    It fetch data and printed. However, after fetching some pages, the url.open()
+    failed. Ir throws HTTPERRO(code 504: Gateway Timeoout). So I add the proces
+    4 the exception with try...catch & run 3 times in the failed url. But it does
+    not work. The spider will fail with the same error. I use the code run in
+    another machine. It works well. So I realized that I was blocked by the web
+    site firewall.
+I modify the HTTP request header field 'User Agent' with another field which is
+    copied from internet. It works but the spider fails after fetching some data.
+    What can I do? I think there must be some rule in the web site firewall it
+    blocks my access with spider. I checked the `robots.txt` in the web root dir.
+    It includes folloing contents:
+        User-Agent: *
+        Allow: /
+It seems the web admin does not deny the web content access, or the admin only
+    add this file casually. If there is rule which blocks the access.It should
+    rooted in web fire wall. So I use a simple trick to run the code in next
+    morning, the code sleep 1 seconds after fetcing a code. I think this may make
+    the spider acts more like a human beings. OK it works in the same test field.
+
