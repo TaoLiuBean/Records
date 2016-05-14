@@ -1,0 +1,13 @@
+When writing spider for university entrance eam scores with Python, I run the
+    spider in my own python3 docker. There is error when parsing the fetched
+    data as the docker does not support chinese.
+
+So I refer the posts in https://segmentfault.com/a/1190000005026503
+Run following scripts with source in terminal to make it supports chinese:
+    ----------------------------------------------------------------------------
+    locale-gen zh_CN.UTF-8
+    DEBIAN_FRONTEND=noninteractive dpkg-reconfigure locales
+    locale-gen zh_CN.UTF-8
+    export LANG=zh_CN.UTF-8
+    export LANGUAGE=zh_CN:zh
+    export LC_ALL=zh_CN.UTF-8
