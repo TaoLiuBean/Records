@@ -1,0 +1,18 @@
+I parse the cosp excel and generate an dict object for each row in excel.
+I have to generate a json file as required.
+
+I get following methods:
+
+import json
+measurements = [
+    {'weight': 392.3, 'color': 'purple', 'temperature': 33.4},
+    {'weight': 34.0, 'color': 'green', 'temperature': -3.1},
+    ]
+with open('measurements.json', 'w') as f:
+    f.write(json.dumps(measurements))
+
+with above example code, it will write the object to a file, but all objects are
+    written in one line, very ugly.
+
+Following cmds make it pretty:
+    cat measurements.json | python -m json.tool > measurements.pretty.json
