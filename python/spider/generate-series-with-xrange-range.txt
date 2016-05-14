@@ -1,0 +1,32 @@
+range(...)
+range(stop) -> list of integers
+range(start, stop[, step]) -> list of integers
+
+>>> range(10)
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+>>> range(0, 10)
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+>>> range(0, 10, 2)
+[0, 2, 4, 6, 8]
+--------------------------------------------------------------------------------
+xrange(stop) -> xrange object
+xrange(start, stop[, step]) -> xrange object
+>>> xrange(10)
+xrange(10)
+
+>>> xrange(0, 10)
+xrange(10)
+
+>>> range(0, 10, 2)
+xrange(0,10,2)
+
+
+differnt between range and xrange:
+----------------------------------
+The advantage of xrange() over range() is minimal (since xrange() still has to create the values when asked for them) except when a very large range is used on a memory-starved machine or when all of the range's elements are never used (such as when the loop is usually terminated with break).Note: xrange() is intended to be simple and fast
+
+conclusion:
+    - xrange is more memory effective.
+    - range generate a list. xrange genrate an xrange object.
